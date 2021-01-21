@@ -15,7 +15,10 @@ class SnakeLadder
         {
             case 1:
                 Console.WriteLine("Player getting Ladder");
-                position += dice_value;
+                if (position + dice_value > 100)
+                    position = position;
+                else
+                    position += dice_value;
                 break;
             case 2:
                 Console.WriteLine("Player getting Snake");
@@ -33,8 +36,6 @@ class SnakeLadder
         }
         if (position < 0)
             position = INTIAL_POSITION;
-        if (position > 100)
-            position = FINAL_POSITION;
         return position;
 
     }
