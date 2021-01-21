@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 class SnakeLadder
 {
     public static int INTIAL_POSITION = 0;
@@ -43,14 +44,22 @@ class SnakeLadder
     static void Main(string[] args)
     {
         int position = 0;
+        int count = 0;
+        ArrayList show_positions = new ArrayList();
         while (position < FINAL_POSITION)
         {
             Random random = new Random();
             int dice_value = random.Next(1, 7);
             position = Option_Check(position, dice_value);
+            show_positions.Add(position);
+            count++;
 
         }
-        Console.WriteLine("Player's Final Position :" + " " + position);
+        Console.WriteLine("Player's Final Position :" + " " + position+" "+"Number of Time Dice Rolls"+" "+count);
+        for (int progress = 0; progress < count; progress++)
+        {
+            Console.WriteLine("Position after every roll" + " " + show_positions[progress]);
+        }
     }
 }
 
